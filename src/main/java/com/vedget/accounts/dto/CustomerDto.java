@@ -10,4 +10,5 @@ public class CustomerDto {
     public String name;
     public String email;
     public String mobileNumber;
+    public AccountsDto accountsDto;
 }

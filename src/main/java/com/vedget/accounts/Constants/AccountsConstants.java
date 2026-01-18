@@ -1,9 +1,8 @@
-package com.vedget.accounts.controller.constants;
+package com.vedget.accounts.Constants;
 
-public final class AccountsConstants {
+public class AccountsConstants {
 
-
-        private AccountsConstants() {
+    private AccountsConstants() {
             // restrict instantiation
         }
 
@@ -19,5 +18,8 @@ public final class AccountsConstants {
         // public static final String  STATUS_500 = "500";
         // public static final String  MESSAGE_500 = "An error occurred. Please try again or contact Dev team";
 
-}
+    }
+
+
+
 
