@@ -1,0 +1,11 @@
+
+#base image
+ FROM eclipse-temurin:21-jdk
+# MAINTAINER instruction is deprecated in favor of using label
+# MAINTAINER eazybytes.com
+#Information around who maintains the image
+ MAINTAINER ramyapentela
+# Add the application's jar to the image
+ COPY target/Accounts-0.0.1-SNAPSHOT.jar Accounts-0.0.1-SNAPSHOT.jar
+# execute the application
+ ENTRYPOINT ["java","-jar","Accounts-0.0.1-SNAPSHOT.jar"]
