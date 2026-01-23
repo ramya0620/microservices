@@ -1,6 +1,7 @@
 package com.vedget.accounts.controller;
 
 import com.vedget.accounts.Constants.AccountsConstants;
+import com.vedget.accounts.dto.AccountContactDto;
 import com.vedget.accounts.dto.CustomerDto;
 import com.vedget.accounts.dto.ErrorResponseDto;
 import com.vedget.accounts.dto.ResponseDto;
@@ -39,6 +40,9 @@ public class AccountsController {
 
     @Value("${build.version}")
     private String buildVersion;
+
+    @Autowired
+    private AccountContactDto accountContactDto;
 
     @Operation(
             summary="Create Account REST API",
@@ -199,6 +203,30 @@ public class AccountsController {
         return ResponseEntity
                 .status(HttpStatus.OK)//"MAVEN_HOME
                 .body(environment.getProperty("JAVA_HOME"));
+    }
+    @Operation(
+            summary = "Get Contact Info",
+            description = "Contact Info details that can be reached out in case of any issues"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
+            )
+    }
+    )
+    @GetMapping("/contact-info")
+    public ResponseEntity<AccountContactDto> getContactInfo() {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(accountContactDto);
     }
 
 }
