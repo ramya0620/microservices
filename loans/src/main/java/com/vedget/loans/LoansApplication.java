@@ -1,5 +1,6 @@
 package com.vedget.loans;
 
+import com.vedget.loans.dto.LoansContactDto;
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
@@ -7,12 +8,14 @@ import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.info.License;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 /*@ComponentScans({ @ComponentScan("com.vedget.loans.controller") })
 @EnableJpaRepositories("com.vedget.loans.repository")
 @EntityScan("com.vedget.loans.model")*/
 @SpringBootApplication
 @EnableJpaAuditing(auditorAwareRef = "auditAwareImpl")
+@EnableConfigurationProperties(value = {LoansContactDto.class})
 @OpenAPIDefinition(
 		info = @Info(
 				title = "Loans microservice REST API Documentation",
