@@ -17,7 +17,7 @@ spring:
       ddl-auto: update
     show-sql: true
   config:
-    import:
+    imports:
       - "application-qa.yml"
       - "application-prod.yml"
   profiles:

@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: "qa"
+
+build:
+  version: "2.0"
+
+accounts:
+  message: "Welcome to VedgetBank Loans related QA APIs "
+  contactDetails:
+    name: "Sandy Geethu - QA Owner"
+    email: "Sandygeethy@vedgetbank.com"
+  onCallSupport:
+    - (333) 125-3765
+    - (333) 125-8371
