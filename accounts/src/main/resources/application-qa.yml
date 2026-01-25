@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: "qa"
+
+build:
+  version: "2.0"
+
+accounts:
+  message: "Welcome to VedgetBank accounts related QA APIs "
+  contactDetails:
+    name: "Sandy Geethu - QA Lead"
+    email: "sandygeethu@vedgetbank.com"
+  onCallSupport:
+    - (333) 125-3765
+    - (333) 125-8371

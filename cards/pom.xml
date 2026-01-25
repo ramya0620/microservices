@@ -128,7 +128,7 @@
 				<configuration>
 					<to>
 						<image>
-							ramyapentela0698/${project.artifactId}:s4
+							ramyapentela0698/${project.artifactId}:s6
 						</image>
 					</to>
 				</configuration>
