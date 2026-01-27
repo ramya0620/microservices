@@ -6,7 +6,7 @@ spring:
 build:
   version: "2.0"
 
-accounts:
+loans:
   message: "Welcome to VedgetBank Loans related QA APIs "
   contactDetails:
     name: "Sandy Geethu - QA Owner"
