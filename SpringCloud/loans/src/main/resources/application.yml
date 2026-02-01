@@ -2,7 +2,11 @@ server:
   port: 8090
 spring:
   application:
-    name: loans
+    name: "loans"
+  profiles:
+    active: "prod"
+  config:
+    import: "optional:configserver:http://localhost:8071/"
   datasource:
     url: jdbc:h2:mem:testdb
     driverClassName: org.h2.Driver
@@ -16,21 +20,16 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-  config:
-    imports:
-      - "application-qa.yml"
-      - "application-prod.yml"
-  profiles:
-    active:
-      - "qa"
-build:
-  version: "3.0"
-loans:
-  message: "Welcome to VedgetBank Loans related Local APIs "
-  contactDetails:
-    name: "Ramya - Developer"
-    email: "ramya@vedgetbank.com"
-  onCallSupport:
-    - (123) 456-7890
-    - (123) 456-7980
+  rabbitmq:
+    host: "localhost"
+    port: 5672
+    username: "guest"
+    password: "guest"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
 

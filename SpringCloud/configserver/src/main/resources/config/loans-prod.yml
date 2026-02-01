@@ -1,12 +1,9 @@
-spring:
-  config:
-    activate:
-      on-profile: "prod"
+
 
 build:
   version: "1.0"
 
-accounts:
+loans:
   message: "Welcome to VedgetBank Loans related prod APIs "
   contactDetails:
     name: "Krishna Anshu - Loans Owner"

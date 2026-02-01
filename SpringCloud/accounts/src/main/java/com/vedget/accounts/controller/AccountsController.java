@@ -28,12 +28,17 @@ import org.springframework.web.bind.annotation.*;
         name = "CRUD REST APIs for Accounts in VedgetBank",
         description = "CRUD REST APIs in VedgetBank to CREATE, UPDATE, FETCH AND DELETE account details"
 )
-@RestController @RequiredArgsConstructor
+@RestController
 @RequestMapping(path="/api",produces = {MediaType.APPLICATION_JSON_VALUE})
 @Validated
 public class AccountsController {
 
-    private IAccountsService iAccountsService;
+
+    private final IAccountsService iAccountsService;
+
+    public AccountsController(IAccountsService iAccountsService){
+        this.iAccountsService=iAccountsService;
+    }
 
     @Autowired
     private Environment environment;
