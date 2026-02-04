@@ -10,8 +10,6 @@ services:
       resources:
         limits:
           memory: 700m
-    environment:
-      SPRING_PROFILES_ACTIVE: default
 
   microservice-configserver-config:
     extends:
@@ -21,4 +19,5 @@ services:
         condition: service_healthy
     environment:
       SPRING_CONFIG_IMPORT: "configserver:http://configserver:8071/"
+      SPRING_PROFILES_ACTIVE: default
 
