@@ -11,6 +11,9 @@ services:
       timeout: 5s
       retries: 10
       start_period: 5s
+      networks:
+        -vedgetbank
+
   configserver:
     image: "ramyapentela0698/configserver:s6"
     container_name: configserver-ms
@@ -28,6 +31,7 @@ services:
           memory: 700m
     networks:
       - vedgetbank
+
   accounts:
     image: "ramyapentela0698/accounts:s6"
     container_name: accounts-ms
@@ -46,6 +50,7 @@ services:
       SPRING_APPLICATION_NAME: "accounts"
       SPRING_CONFIG_IMPORT: "configserver:http://configserver:8071/"
       SPRING_PROFILES_ACTIVE: default
+
   loans:
     image: "ramyapentela0698/loans:s6"
     container_name: loans-ms
@@ -64,6 +69,7 @@ services:
       SPRING_APPLICATION_NAME: "loans"
       SPRING_CONFIG_IMPORT: "configserver:http://configserver:8071/"
       SPRING_PROFILES_ACTIVE: default
+
   cards:
     image: "ramyapentela0698/cards:s4"
     container_name: cards-ms
@@ -82,6 +88,7 @@ services:
       SPRING_APPLICATION_NAME: "cards"
       SPRING_CONFIG_IMPORT: "configserver:http://configserver:8071/"
       SPRING_PROFILES_ACTIVE: default
+
 networks:
   vedgetbank:
     driver: "bridge"
