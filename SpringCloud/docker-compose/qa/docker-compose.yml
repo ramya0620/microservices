@@ -5,16 +5,15 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
-    extends:
-      file: common-config.yml
-      service: network-deploy-service
     healthcheck:
       test: rabbitmq-diagnostics check_port_connectivity
       interval: 10s
       timeout: 5s
       retries: 10
       start_period: 5s
-
+      extends:
+        file: common-config.yml
+        service: network-deploy-service
 
   configserver:
     image: "ramyapentela0698/configserver:s6"
@@ -54,7 +53,7 @@ services:
       SPRING_APPLICATION_NAME: "loans"
 
   cards:
-    image: "ramyapentela0698/cards:s6"
+    image: "ramyapentela0698/cards:s4"
     container_name: cards-ms
     ports:
       - "9000:9000"
